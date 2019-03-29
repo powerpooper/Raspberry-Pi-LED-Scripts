@@ -1,0 +1,90 @@
+<?php
+
+// Starts running here
+if (defined('STDIN')) {
+	$newvar = $argv[1];
+} else {
+	$newvar = $_GET['newvar'];
+}
+
+if (is_numeric($newvar)) {
+	exec("sudo python /usr/lib/cgi-bin/bright-level.py $newvar > /dev/null 2>&1 &");
+}
+
+
+// Check if Animation is running
+$file = '/usr/lib/cgi-bin/varfile.py';
+$searchfor = 'Animation';
+
+// get the file contents, assuming the file to be readable (and exist)
+$contents = file_get_contents($file);
+
+// escape special characters in the query
+$pattern = preg_quote($searchfor, '/');
+
+// finalise the regular expression, matching the whole line
+$pattern = "/^.*$pattern.*\$/m";
+
+// search, and store all matching occurences in $matches
+if(preg_match_all($pattern, $contents, $matches)){
+	$foundline = implode("\n", $matches[0]);
+	$varexplode=explode(' = ', $foundline);
+
+	if ( $varexplode[1] !== 'False' ) {
+		$pidtokill = $varexplode[1];
+		exec("sudo kill -SIGINT $pidtokill > /dev/null 2>&1 &");
+	}
+}
+
+function mainactivity($newvar) {
+
+	if ($newvar[0] == '?') {
+		$colorhex = explode('=', "$newvar");
+		$fp = fopen('color.txt', 'w');
+		fwrite($fp, "$colorhex[1] \n");
+		fclose($fp);
+		exec("sudo python /usr/lib/cgi-bin/ledstrip.py '$colorhex[1]' > /dev/null 2>&1 &");
+	}
+
+
+	switch ($newvar) {
+		case "off":
+			exec('sudo python /usr/lib/cgi-bin/onoff.py off > /dev/null 2>&1 &');
+			break;
+		case "on":
+			exec('sudo python /usr/lib/cgi-bin/onoff.py on > /dev/null 2>&1 &');
+			break;
+		case "red":
+		        exec("sudo python /usr/lib/cgi-bin/ledstrip.py '#ff0000' > /dev/null 2>&1 &");
+		        break;
+		case "green":
+			exec("sudo python /usr/lib/cgi-bin/ledstrip.py '#00ff00' > /dev/null 2>&1 &");
+			break;
+		case "blue":
+			exec("sudo python /usr/lib/cgi-bin/ledstrip.py '#0000ff' > /dev/null 2>&1 &");
+			break;
+		case "white":
+			exec("sudo python /usr/lib/cgi-bin/ledstrip.py '#FF9329' > /dev/null 2>&1 &");
+			break;
+		case "lightblue":
+		        exec("sudo python /usr/lib/cgi-bin/ledstrip.py '#48D2FF' > /dev/null 2>&1 &");
+		        break;
+                case "lightpurple":
+                        exec("sudo python /usr/lib/cgi-bin/ledstrip.py '#992DFF' > /dev/null 2>&1 &");
+                        break;
+		case "rainbow":
+			exec("sudo python /usr/lib/cgi-bin/ledstrip.py rainbow > /dev/null 2>&1 &");
+			break;
+		case "christmas":
+		        exec("sudo python /usr/lib/cgi-bin/ledstrip.py christmas > /dev/null 2>&1 &");
+		        break;
+		case "halloween":
+		        exec("sudo python /usr/lib/cgi-bin/ledstrip.py halloween > /dev/null 2>&1 &");
+		        break;
+	}
+}
+
+mainactivity($newvar);
+
+?>
+

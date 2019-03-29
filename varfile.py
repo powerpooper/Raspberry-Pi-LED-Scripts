@@ -1,0 +1,11 @@
+LED_COUNT      = 206
+LED_PIN        = 18
+LED_FREQ_HZ    = 800000
+LED_DMA        = 10
+LED_BRIGHTNESS = 153
+LED_INVERT     = False
+LED_CHANNEL    = 0
+lastcolor = "#001d89"
+Power = "off"
+BrightPercent = "60"
+Animation = False
