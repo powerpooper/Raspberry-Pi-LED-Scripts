@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+      <!-- Add icon library -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+	body, html {
+          margin: 0;
+          padding: 0;
+	  width:100%;
+    	  height: 100%;
+	}
+
+	body {
+    	  margin: 0;
+	  padding: 0;
+   	  height: 100%;
+    	  width: 100%;
+	}
+
+	.bg {
+	  /* The image used */
+	  background-image: url("/pictures/bck.jpg");
+
+	  /* Full height */
+	  height: 100%;
+	  width: 100%;
+
+	  /* Center and scale the image nicely */
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+
+	h1 {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          max-height: 100%;
+          float: left;
+          width: 100%;
+          font-size: 50px;
+	}
+
+	.red {
+          background-color: red;
+          position: absolute;
+          top: 25%;
+          left: 2%;
+          padding: 2.9%;
+          display: inline-block;
+	  vertical-align: top;
+	}
+
+        .green {
+          background-color: green;
+          position: absolute;
+          top: 25%;
+          left: 15%;
+          padding: 2.9%;
+          display: inline-block;
+          vertical-align: top;        
+	}
+
+        .blue {
+          background-color: blue;
+          position: absolute;
+          top: 62%;
+          left: 2%;
+          padding: 2.9%;
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .white {
+    	  border-style: solid;
+	  border-width: 2px;
+    	  border-color: SlateGray;
+          background-color: white;
+          position: absolute;
+          top: 62%;
+          left: 15%;
+          padding: 2.9%;
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .rainbow {
+          background-color: red;
+          background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+          position: absolute;
+          top: 43.5%;
+          left: 8.55%;
+          padding: 2.9%;
+          display: inline-block;
+          vertical-align: top;
+        }
+
+	div.on {
+    	  width: 5%;
+    	  position: absolute;
+    	  top: 17%;
+    	  left: 52%;
+    	  padding: 0;
+  	}
+
+        div.off {
+          width: 5%;
+          position: absolute;
+          top: 17%;
+          left: 40%;
+          padding: 0;
+        }
+
+        div.reboot {
+          width: 4%;
+          position: absolute;
+          bottom: 2.5%;
+          right: 12.5%;
+          padding: 0;
+        }
+
+	.button {
+	  position: relative;
+    	  background-color: rgba(34, 139, 34, 0.8);
+    	  border: none;
+    	  font-size: 170%;
+    	  color: #FFFFFF;
+    	  padding: 31%;
+    	  text-align: center;
+    	  -webkit-transition-duration: 0.4s; /* Safari */
+    	  transition-duration: 0.4s;
+    	  text-decoration: none;
+      	  overflow: hidden;
+    	  cursor: pointer;
+	}
+
+	.button:after {
+    	  content: "";
+    	  background: #f1f1f1;
+    	  display: block;
+    	  position: absolute;
+    	  padding-top: 300%;
+    	  padding-left: 350%;
+    	  margin-left: -20px !important;
+    	  margin-top: -120%;
+    	  opacity: 0;
+    	 transition: all 0.8s
+	}
+
+        .button:active:after {
+          padding: 0;
+          margin: 0;
+          opacity: 1;
+          transition: 0s
+        }
+
+        .button1 {
+          position: relative;
+          background-color: rgba(200, 34, 34, 0.5);
+          border: none;
+          font-size: 169%;
+          color: #FFFFFF;
+          padding: 30%;
+          text-align: center;
+          -webkit-transition-duration: 0.4s; /* Safari */
+          transition-duration: 0.4s;
+          text-decoration: none;
+          overflow: hidden;
+          cursor: pointer;
+        }
+
+        .button1:after {
+          content: "";
+          background: #f1f1f1;
+          display: block;
+          position: absolute;
+          padding-top: 300%;
+          padding-left: 350%;
+          margin-left: -20px !important;
+          margin-top: -120%;
+          opacity: 0;
+         transition: all 0.8s
+        }
+
+	.button1:active:after {
+    	  padding: 0;
+    	  margin: 0;
+    	  opacity: 1;
+    	  transition: 0s
+	}
+
+	.button2 {
+	  background-color: rgba(30, 144, 255, 0.05);
+    	  border: none;
+    	  color: rgba(255, 255, 255, 0.6);
+   	  padding: 25px 36px;
+    	  font-size: 24px;
+    	  cursor: pointer;
+	}
+
+	/* Darker background on mouse-over */
+	.button2:hover {
+    	  background-color: RoyalBlue;
+	}
+
+        .button4 {
+          background-color: rgba(0, 0, 0, 0.0);
+          border: none;
+          color: rgba(80, 180, 255, 0.6);
+          padding: 0;
+          font-size: 107px;
+          padding: 0;
+        }
+
+        /* Darker background on mouse-over */
+       .button4:hover {
+         background-color: rgba(255, 228, 196, 0.1);
+        }
+
+        .button5 {
+          background-color: rgba(0, 0, 0, 0.0);
+          border: none;
+          color: rgba(80, 180, 255, 0.6);
+          padding: 0;
+          font-size: 107px;
+          padding: 0;
+        }
+
+        /* Darker background on mouse-over */
+       .button5:hover {
+         background-color: rgba(255, 228, 196, 0.1);
+        }
+
+	.button {border-radius: 50%;}
+        .button1 {border-radius: 50%;}
+	.redbutton {border-radius: 20%;}
+	.greenbutton {border-radius: 20%;}
+	.bluebutton {border-radius: 20%;}
+	.whitebutton {border-radius: 20%;}
+        .rainbowbutton {border-radius: 20%;}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 50%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid rgba(0, 0, 0, .8);
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  background: rgba(139, 0, 139, 0.5);
+  cursor: pointer;
+  margin-top: -5px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid rgba(0, 0, 0, .8);
+  height: 250%;
+  width: 12%;
+  border-radius: 100%;
+  background: rgba(139, 0, 139, 0.6);
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid rgba(0, 0, 0, .8);
+  height: 180%;
+  width: 9%;
+  border-radius: 100%;
+  background: rgba(139, 0, 139, 0.6);
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 110%;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(128, 128, 128, .5);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(67, 229, 247, .5);
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(128, 128, 128, .5);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type="range"]::-moz-range-progress {
+  height: 60%;
+  background-color: rgba(255, 69, 0, .8);
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 60%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+
+output { 
+  position: absolute;
+  background-image: linear-gradient(DarkSlateGray, DarkSeaGreen);
+  width: 30%; 
+  height: 110%;
+  text-align: center; 
+  color: white; 
+  border-radius: 30%; 
+  display: inline-block; 
+  font: bold 15px/35px Georgia;
+  bottom: 220%;
+  right: -30%;
+}
+
+output:after { 
+  content: "";
+  position: absolute; 
+  width: 5%;
+  height: 5%;
+  border-top: 10px solid rgba(47, 79, 79, 1);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 100%;
+  right: 20%;
+  margin-left: -10%;
+  margin-top: 0.5%;
+}
+
+.formslide {
+  position: absolute;
+  bottom: 15%;
+  right: 54%;
+  padding: 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+form { position: relative; left: 10%; margin: 1%; width: 40%; }
+
+div.level {
+  text-align: right;
+  font-size: 100%;
+  background-color: #0;
+  color: rgba(100, 149, 237, 0.4);
+  width: 50%;
+  position: absolute;
+  bottom: 2%;
+  right: 42.5%;
+  padding: 0%;
+}
+    </style>
+
+  </head>
+
+<body>
+
+  <h1 style="color:rgba(80, 0, 0, 0.05);" align="center">Raspberry Pi</h1>
+  <div class="bg"></div>
+
+  <div class="level">
+    <h3>Brightness Level</h3>
+  </div>	
+
+  <div class="formslide">
+      <input type="range" id="brightLevel" name="curlevel" min="0" max="100" value= "0" step="5" style="width: 250%;">
+      <output for="curlevel" id="brightLevelNow" onforminput="value = curlevel.valueAsNumber;"></output>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <button onclick="butred();setTimeout(refresh, 200);" name="red" class="red redbutton"></button>
+  <button onclick="butgreen();setTimeout(refresh, 200);" name="greem" class="green whitebutton"></button>
+  <button onclick="butblue();setTimeout(refresh, 200);" name="blue" class="blue bluebutton"></button>
+  <button onclick="butwhite();setTimeout(refresh, 200);" name="white" class="white whitebutton"></button>
+  <button onclick="butrainbow();setTimeout(refresh, 200);" name="rainbow" class="rainbow rainbowbutton"></button>
+
+  <div class="on">
+    <button name="On" class="button" onclick="on();setTimeout(refresh, 250);">On</button>
+  </div>
+
+  <div class="off">
+    <button name="Off" class="button1" onclick="off();setTimeout(refresh, 250);">Off</button>
+  </div>
+
+  <div class="reboot">
+    <button onclick="rebootnow();" class="button2"><i class="fa fa-refresh""></i> Reboot</button>
+  </div>
+
+<script type="text/javascript">
+function refresh () {
+    window.location.reload();
+}
+</script>
+
+<script>
+var slider = document.getElementById("brightLevel");
+var output = document.getElementById("brightLevelNow");
+
+function modifyOffset() {
+    var el, newPoint, newPlace, offset, siblings, k;
+    width    = this.offsetWidth;
+    newPoint = (this.value - this.getAttribute("min")) / (this.getAttribute("max") - this.getAttribute("min"));
+    offset   = -7;
+    if (newPoint < 0) { newPlace = 0;  }
+    else if (newPoint > 1) { newPlace = width; }
+    else { newPlace = width * newPoint + offset; offset -= newPoint;}
+    siblings = this.parentNode.childNodes;
+    for (var i = 0; i < siblings.length; i++) {
+        sibling = siblings[i];
+        if (sibling.id == this.id) { k = true; }
+        if ((k == true) && (sibling.nodeName == "OUTPUT")) {
+            outputTag = sibling;
+        }
+    }
+    outputTag.style.left       = newPlace + "px";
+    outputTag.style.marginLeft = offset + "%";
+    outputTag.innerHTML        = this.value;
+
+}
+
+function modifyInputs() {
+
+    var inputs = document.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].getAttribute("type") == "range") {
+            inputs[i].onchange = modifyOffset;
+
+            // the following taken from http://stackoverflow.com/questions/2856513/trigger-onchange-event-manually
+            if ("fireEvent" in inputs[i]) {
+                inputs[i].fireEvent("onchange");
+            } else {
+                var evt = document.createEvent("HTMLEvents");
+                evt.initEvent("change", false, true);
+                inputs[i].dispatchEvent(evt);
+            }
+        }
+    }
+}
+
+modifyInputs();
+
+slider.oninput = function() {
+  var x = document.getElementById("brightLevelNow");
+  var currentVal = this.value;
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=" + currentVal,
+        type: "POST",
+        success:function(result){
+        }
+      });
+}
+
+</script>
+
+<script type="text/javascript">
+function on () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=on", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+<script type="text/javascript">
+function off () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=off", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+<script type="text/javascript">
+function rebootnow () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=reboot", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+<script type="text/javascript">
+function butred () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=red", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+<script type="text/javascript">
+function butgreen () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=green", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+<script type="text/javascript">
+function butblue () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=blue", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+<script type="text/javascript">
+function butwhite () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=white", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+<script type="text/javascript">
+function butrainbow () {
+      $.ajax({
+        url:"cgi-bin/var.php?newvar=rainbow", //the page containing php script
+        type: "POST", //request type
+        success:function(result){
+       }
+     });
+}
+</script>
+
+</body>
+</html>
